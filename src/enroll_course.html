@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Enroll in a Course</h2>
+<form method="POST">
+    <label>Student</label>
+    <select name="student">
+        {% for student in students %}
+        <option value="{{ student.student_id }}">{{ student.name }}</option>
+        {% endfor %}
+    </select>
+    <label>Course</label>
+    <select name="course">
+        {% for course in courses %}
+        <option value="{{ course.course_id }}">{{ course.course_name }}</option>
+        {% endfor %}
+    </select>
+    <label>Date</label>
+    <input type="date" name="date" required>
+    <label>Semester</label>
+    <input type="text" name="semester" required>
+    <button type="submit">Enroll</button>
+</form>
+{% endblock %}
